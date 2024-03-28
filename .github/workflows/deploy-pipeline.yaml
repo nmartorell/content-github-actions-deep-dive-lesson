@@ -56,8 +56,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
         with:
-          tag_name: ${{ github.run_rumber }}
-          release_name: Release from ${{ github.run_rumber }}
+          tag_name: ${{ github.run_number }}
+          release_name: Release from ${{ github.run_number }}
           body: New release for ${{ github.sha }}. Release note at example.com.
           draft: false
           prerelease: false
