@@ -83,7 +83,8 @@ jobs:
         run: |  
           aws lambda create-function --function-name nedmartorell-test-function \  
             --code S3Bucket=ned-martorell,S3Key=gh-actions/${{ github.sha }}.zip \  
-            --handler lambda_function.lambda_handler --runtime python3.8 \  
+            --handler lambda_function.lambda_handler \
+            --runtime python3.8 \  
             --role ${{ secrets.ROLE_ARN }}
       - name: Wait 30 seconds
         run: sleep 30
