@@ -1,5 +1,8 @@
 name: Deploy Lambda Function
-on: [push]
+on:
+  push:
+    branches: 
+      - lab
 
 jobs:
 
@@ -44,3 +47,17 @@ jobs:
         with:
           name: zipped-bundle
           path: ${{ github.sha }}.zip
+
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: create release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.github_token }}
+        with:
+          tag_name: ${{ github.run_rumber }}
+          release_name: Release from ${{ github.run_rumber }}
+          body: New release for ${{ github.sha }}. Release note at example.com.
+          draft: false
+          prerelease: false
