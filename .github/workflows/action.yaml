@@ -62,6 +62,6 @@ jobs:
           aws lambda update-function-code \
             --function-name nedmartorell-cloudguru-DELETEME-AFTER-2024-04 \
             --s3-bucket ned-martorell \
-            --s3-key gh-actions/${{ github.sha }}.zip
+            --s3-key gh-actions/${{ github.sha }}.zip \
             --publish
         
